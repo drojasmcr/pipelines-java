@@ -30,12 +30,11 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: | 
-      $releaseId = $env:Release_ReleaseId
+    script: |       
       $url = "https://prod-111.westus.logic.azure.com:443/workflows/8e48f1c51e04474592e302bd2a423426/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Hc49eJSIN10FXdvVPXuyVCb0bueNl5U4aFgiQUygCck"
       $method = "POST"
       $body = @{
-        DeployRequestId = $releaseId
+        DeployRequestId = "$env:Release_ReleaseId"
         LogText = "Something cool to let the user know what is happening with his deploy"
         LogType = "Info"
         StepName = "Deploy"
