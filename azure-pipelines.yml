@@ -38,7 +38,7 @@ steps:
         DeployRequestId = $releaseId
         LogText = "Something cool to let the user know what is happening with his deploy"
         LogType = "Info"
-        StepName = Deploy
+        StepName = "Deploy"
       }
 
       $headers = @{
