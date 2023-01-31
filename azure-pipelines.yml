@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: "ubuntu-latest"
 
+parameters:
+  - name: deployRequestId
+    type: string
+    default: ''
 steps:
 - task: Maven@3
   inputs:
@@ -38,7 +42,7 @@ steps:
         StepName = "Deploy"
         LogType = "Info"
         LogText = "Deploy starting"
-        DeployRequestId = "$env:Release_ReleaseId"
+        DeployRequestId = $env:deployRequestId
       }
 
       $headers = @{
